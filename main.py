@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/cynthia/pythonProject/SELFRec/")
 from SELFRec import SELFRec
 from util.conf import ModelConf
 
@@ -18,7 +20,7 @@ if __name__ == '__main__':
     print('   '.join(graph_models))
 
     print('=' * 80)
-    model = input('Please enter the model you want to run:')
+    model = input()
     import time
 
     s = time.time()

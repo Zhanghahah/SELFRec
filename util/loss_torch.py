@@ -26,7 +26,7 @@ def batch_softmax_loss(user_emb, item_emb, temperature):
     pos_score = (user_emb * item_emb).sum(dim=-1)
     pos_score = torch.exp(pos_score / temperature)
     ttl_score = torch.matmul(user_emb, item_emb.transpose(0, 1))
-    ttl_score = torch.exp(ttl_score / temperature).sum(dim=1)
+    ttl_score = torch.exp(ttl_score / temperature).sum(dim=1) # [2048]
     loss = -torch.log(pos_score / ttl_score)
     return torch.mean(loss)
 

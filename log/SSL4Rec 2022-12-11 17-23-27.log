@@ -1,0 +1,13 @@
+2022-12-11 18:35:37,938 - SSL4Rec - INFO - ### model configuration ###
+2022-12-11 18:35:37,939 - SSL4Rec - INFO - training.set=./dataset/ml-1M/train.txt
+2022-12-11 18:35:37,939 - SSL4Rec - INFO - test.set=./dataset/ml-1M/test.txt
+2022-12-11 18:35:37,939 - SSL4Rec - INFO - model.name=SSL4Rec
+2022-12-11 18:35:37,939 - SSL4Rec - INFO - model.type=graph
+2022-12-11 18:35:37,939 - SSL4Rec - INFO - item.ranking=-topN 20
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - embbedding.size=64
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - num.max.epoch=100
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - batch_size=2048
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - learnRate=0.001
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - reg.lambda=0.0001
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - SSL4Rec=-tau 0.07 -alpha 0.1 -drop 0.1
+2022-12-11 18:35:37,940 - SSL4Rec - INFO - output.setup=-dir ./results/

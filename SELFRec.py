@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/cynthia/pythonProject/SELFRec/")
 from data.loader import FileIO
 
 

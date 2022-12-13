@@ -61,7 +61,7 @@ class Interaction(Data,Graph):
         user_np = np.array(row_idx)
         item_np = np.array(col_idx)
         ratings = np.ones_like(user_np, dtype=np.float32)
-        tmp_adj = sp.csr_matrix((ratings, (user_np, item_np + self.user_num)), shape=(n_nodes, n_nodes),dtype=np.float32)
+        tmp_adj = sp.csr_matrix((ratings, (user_np, item_np + self.user_num)), shape=(n_nodes, n_nodes),dtype=np.float32) # model ratings to adj matrix
         adj_mat = tmp_adj + tmp_adj.T
         if self_connection:
             adj_mat += sp.eye(n_nodes)

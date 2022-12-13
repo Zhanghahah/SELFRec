@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/cynthia/pythonProject/SELFRec/")
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -24,7 +26,7 @@ class SSL4Rec(GraphRecommender):
         self.model = DNN_Encoder(self.data, self.emb_size, self.drop_rate, self.tau)
 
     def train(self):
-        model = self.model.cuda()
+        model = self.model.cuda() if torch.cuda.is_available() else self.model
         optimizer = torch.optim.Adam(model.parameters(), lr=self.lRate)
         for epoch in range(self.maxEpoch):
             for n, batch in enumerate(next_batch_pairwise(self.data, self.batch_size)):
@@ -80,11 +82,11 @@ class DNN_Encoder(nn.Module):
         self.initial_item_emb = nn.Parameter(initializer(torch.empty(self.data.item_num, self.emb_size)))
 
     def forward(self, q, x):
-        q_emb = self.initial_user_emb[q]
-        i_emb = self.initial_item_emb[x]
+        q_emb = self.initial_user_emb[q] # 2048 *64
+        i_emb = self.initial_item_emb[x] 
 
         q_emb = self.user_tower(q_emb)
-        i_emb = self.item_tower(i_emb)
+        i_emb = self.item_tower(i_emb) # 2048 *128
 
         return q_emb, i_emb
 
